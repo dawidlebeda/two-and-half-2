@@ -1,7 +1,6 @@
 const audio = document.querySelector("#audio");
 const audioButton = document.querySelector("#audioButton");
 
-
 const cards = [
   document.querySelector("#andilci"),
   document.querySelector("#chlastat"),
@@ -16,8 +15,6 @@ const cards = [
   document.querySelector("#cigaretka"),
   document.querySelector("#peklo"),
 ];
-
-
 
 const audioUrls = [
   "audio/charlie_andilci.mp3",
@@ -34,8 +31,6 @@ const audioUrls = [
   "audio/herb.mp3",
 ];
 
-
-
 // a function that randomly generates audio track from array "audioUrls"
 
 const randomAudio = () => {
@@ -48,28 +43,22 @@ const randomAudio = () => {
 // a function that runs randomly generated audio track from array "audioUrls"
 
 audioButton.addEventListener("click", () => {
-  
-
-  audio.addEventListener("loadeddata", () => {       
+  audio.addEventListener("loadeddata", () => {
     audio.play();
   });
 
   const catchphrase = randomAudio();
-  audio.src = catchphrase;               
+  audio.src = catchphrase;
 });
 
 // foreach loop that runs concrete audio track from array "audioUrls"
 
 cards.forEach((audioButon, index) => {
   audioButon.addEventListener("click", () => {
-    const catchphrase = audioUrls[index];
-    
     audio.addEventListener("loadeddata", () => {
       audio.play();
     });
-
+    const catchphrase = audioUrls[index];
     audio.src = catchphrase;
   });
 });
-
-
